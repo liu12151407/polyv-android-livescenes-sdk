@@ -48,7 +48,7 @@
             android:gravity="center"
             android:singleLine="true"
             android:text="昵称昵称昵称称昵称昵称昵称昵称"
-            android:textColor="#ADADC0"
+            android:textColor="#3F3F3F"
             android:textSize="12sp" />
     </LinearLayout>
 

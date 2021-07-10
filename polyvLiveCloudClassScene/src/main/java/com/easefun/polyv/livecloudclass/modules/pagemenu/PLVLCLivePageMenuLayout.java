@@ -395,7 +395,7 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
     private void refreshPageMenuTabAdapter() {
         if (pageMenuTabAdapter.getCount() > 0) {
             pageMenuTabAdapter.notifyDataSetChanged();
-            pageMenuTabIndicator.setBackgroundColor(Color.parseColor("#3E3E4E"));
+            pageMenuTabIndicator.setBackgroundColor(Color.parseColor("#ffffff"));
             pageMenuTabIndicator.getNavigator().notifyDataSetChanged();
             findViewById(R.id.split_view).setVisibility(View.VISIBLE);
             pageMenuTabViewPager.setOffscreenPageLimit(pageMenuTabAdapter.getCount() - 1);
