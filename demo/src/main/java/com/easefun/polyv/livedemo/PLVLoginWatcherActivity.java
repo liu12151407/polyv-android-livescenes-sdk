@@ -3,8 +3,6 @@ package com.easefun.polyv.livedemo;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -15,6 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 
 import com.easefun.polyv.livecloudclass.scenes.PLVLCCloudClassActivity;
 import com.easefun.polyv.livecommon.module.config.PLVLiveChannelConfigFiller;
@@ -260,16 +261,16 @@ public class PLVLoginWatcherActivity extends PLVBaseActivity {
 
     // <editor-fold defaultstate="collapsed" desc="设置测试数据">
     private void setTestData() {
-        etLiveAppId.setText("");
-        etLiveAppSecert.setText("");
-        etLiveUserId.setText("");
-        etLiveChannelId.setText("");
+        etLiveAppId.setText("fzzv2uo3jt");
+        etLiveAppSecert.setText("92202c2bcadf44b0a5fd662f2ed18670");
+        etLiveUserId.setText("6da57ba44c");
+        etLiveChannelId.setText("2412753");
 
-        etPlaybackAppId.setText("");
-        etPlaybackAppSecret.setText("");
-        etPlaybackUserId.setText("");
-        etPlaybackChannelId.setText("");
-        etPlaybackVideoId.setText("");
+        etPlaybackAppId.setText("fzzv2uo3jt");
+        etPlaybackAppSecret.setText("92202c2bcadf44b0a5fd662f2ed18670");
+        etPlaybackUserId.setText("6da57ba44c");
+        etPlaybackChannelId.setText("2412753");
+        etPlaybackVideoId.setText("6da57ba44cc994c6615dfcec4b554900_6");
     }
     // </editor-fold>
 

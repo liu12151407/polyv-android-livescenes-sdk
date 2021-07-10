@@ -41,6 +41,6 @@ dependencies {
     /// 添加4.10.0的依赖
     api 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-
-
 }
+//implementation 'net.fbdtz.android.plugin:polyvLiveCommonModul:1.0.0-SNAPSHOT'
+apply from: rootProject.file('push.gradle')
