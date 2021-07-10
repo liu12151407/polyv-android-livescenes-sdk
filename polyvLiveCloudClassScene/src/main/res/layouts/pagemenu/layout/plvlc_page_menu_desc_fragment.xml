@@ -51,7 +51,7 @@
                 android:gravity="bottom"
                 android:singleLine="true"
                 android:text="直播时间：无"
-                android:textColor="#ADADC0"
+                android:textColor="#666666"
                 android:textSize="12sp" />
 
             <TextView
@@ -89,7 +89,7 @@
                 android:ellipsize="end"
                 android:maxEms="12"
                 android:singleLine="true"
-                android:textColor="#ADADC0"
+                android:textColor="#666666"
                 android:textSize="12sp"
                 tools:text="主持人主持人主持人主持人主持人主持人" />
 
