@@ -9,7 +9,7 @@
         android:id="@+id/chatroom_tab"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        tools:background="#3E3E4E" />
+        tools:background="#ffffff" />
 
     <View
         android:id="@+id/split_view"
