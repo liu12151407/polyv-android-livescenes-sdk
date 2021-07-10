@@ -17,7 +17,7 @@ public class PLVLCTextFragment extends PLVSimpleWebViewFragment {
 
     @Override
     protected int getBackgroundColor() {
-        return Color.parseColor("#202127");
+        return Color.parseColor("#F2F3F7");
     }
 
     @Override
