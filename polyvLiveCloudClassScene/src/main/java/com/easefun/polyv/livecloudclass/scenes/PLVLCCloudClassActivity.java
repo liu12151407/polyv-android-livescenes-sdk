@@ -1,17 +1,19 @@
 package com.easefun.polyv.livecloudclass.scenes;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
 import android.view.ViewStub;
 import android.view.WindowManager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.easefun.polyv.livecloudclass.R;
 import com.easefun.polyv.livecloudclass.modules.chatroom.chatlandscape.PLVLCChatLandscapeLayout;
@@ -22,6 +24,8 @@ import com.easefun.polyv.livecloudclass.modules.media.IPLVLCMediaLayout;
 import com.easefun.polyv.livecloudclass.modules.pagemenu.IPLVLCLivePageMenuLayout;
 import com.easefun.polyv.livecloudclass.modules.ppt.IPLVLCFloatingPPTLayout;
 import com.easefun.polyv.livecloudclass.modules.ppt.IPLVLCPPTView;
+import com.easefun.polyv.livecloudclass.wsx.CommonDialog;
+import com.easefun.polyv.livecloudclass.wsx.WsxMonitor;
 import com.easefun.polyv.livecommon.module.config.PLVLiveChannelConfigFiller;
 import com.easefun.polyv.livecommon.module.data.IPLVLiveRoomDataManager;
 import com.easefun.polyv.livecommon.module.data.PLVLiveRoomDataManager;
@@ -43,6 +47,9 @@ import com.easefun.polyv.livescenes.video.api.IPolyvLiveListenerEvent;
 import com.plv.foundationsdk.utils.PLVScreenUtils;
 import com.plv.socket.user.PLVSocketUserConstant;
 import com.plv.thirdpart.blankj.utilcode.util.ScreenUtils;
+import com.plv.thirdpart.blankj.utilcode.util.ToastUtils;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * date: 2020/10/12
@@ -714,7 +721,7 @@ public class PLVLCCloudClassActivity extends PLVBaseActivity {
                 mediaLayout.getPlayerSwitchView().post(new Runnable() {
                     @Override
                     public void run() {
-                        if(mediaLayout != null && mediaLayout.getPlayerSwitchView() != null) {
+                        if (mediaLayout != null && mediaLayout.getPlayerSwitchView() != null) {
                             //兼容 constraint-layout 升级到 2.0.0+ 出现的无延迟黑屏问题
                             mediaLayout.getPlayerSwitchView().requestLayout();
                         }
@@ -766,5 +773,81 @@ public class PLVLCCloudClassActivity extends PLVBaseActivity {
         }
     }
     // </editor-fold>
+    /**
+     * 监听器
+     */
+    private static WsxMonitor wsxMonitor;
 
+    /**
+     * 设置监听器
+     *
+     * @param monitor
+     */
+    public static void setWsxMonitor(WsxMonitor monitor) {
+        wsxMonitor = monitor;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mediaLayout != null) {
+            mediaLayout.resume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mediaLayout != null) {
+            mediaLayout.pause();
+        }
+    }
+
+    /**
+     * 每次启动都执行
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ctx = this;
+        if (wsxMonitor != null) {
+            wsxMonitor.StateCallBack();
+        }
+    }
+
+    /**
+     * 上下文
+     */
+    private static Context ctx;
+
+    /**
+     * 弹出提示
+     *
+     * @param price
+     */
+    public static void getPayState(@NotNull String price) {
+        try {
+            final CommonDialog dialog = new CommonDialog(ctx);
+            dialog.setBtnName2("¥" + price + "购买");
+            dialog.setOnClickBottomListener(new CommonDialog.OnClickBottomListener() {
+                @Override
+                public void onPositiveClick() {
+                    dialog.dismiss();
+                    if (wsxMonitor != null) {
+                        wsxMonitor.openVip();
+                    }
+                }
+
+                @Override
+                public void onNegtiveClick() {
+                    dialog.dismiss();
+                    if (wsxMonitor != null) {
+                        wsxMonitor.payMoney();
+                    }
+                }
+            }).show();
+        } catch (Exception e) {
+            ToastUtils.showShort(e.getMessage());
+        }
+    }
 }
