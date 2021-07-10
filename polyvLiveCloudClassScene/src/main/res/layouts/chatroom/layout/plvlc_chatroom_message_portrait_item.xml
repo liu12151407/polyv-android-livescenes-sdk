@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="这是一条信息这是一条信息这是一条信息这是一条信息"
-                android:textColor="#ADADC0"
+                android:textColor="#3F3F3F"
                 android:textSize="16sp" />
         </LinearLayout>
 

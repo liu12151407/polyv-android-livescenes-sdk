@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="236dp"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#2B2C35"
+    android:background="#FFFFFF"
     android:padding="8dp"
     android:clickable="true"
     tools:visibility="visible"
@@ -38,6 +38,6 @@
         android:gravity="center"
         android:text="发送"
         android:enabled="false"
-        android:textColor="#ffffff"
+        android:textColor="#666666"
         android:textSize="14sp" />
 </RelativeLayout>

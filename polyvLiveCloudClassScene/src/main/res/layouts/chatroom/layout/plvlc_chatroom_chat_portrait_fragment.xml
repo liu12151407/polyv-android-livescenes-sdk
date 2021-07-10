@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#202127">
+    android:background="#F2F3F7">
 
     <com.easefun.polyv.livecommon.ui.widget.PLVSimpleSwipeRefreshLayout
         android:id="@+id/swipe_load_view"

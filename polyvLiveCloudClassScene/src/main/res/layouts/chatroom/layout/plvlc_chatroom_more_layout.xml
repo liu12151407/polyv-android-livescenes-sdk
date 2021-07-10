@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="116dp"
-    android:background="#2B2C35"
+    android:background="#ffffff"
     android:clickable="true"
     android:visibility="gone"
     tools:visibility="visible">
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/plv_chat_view_special_message"
-            android:textColor="#ffffff"
+            android:textColor="#3F3F3F"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="发送图片"
-            android:textColor="#ffffff"
+            android:textColor="#3F3F3F"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="拍摄"
-            android:textColor="#ffffff"
+            android:textColor="#3F3F3F"
             android:textSize="12sp" />
     </LinearLayout>
 
@@ -121,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="公告"
-            android:textColor="#ffffff"
+            android:textColor="#3F3F3F"
             android:textSize="12sp" />
     </LinearLayout>
 
