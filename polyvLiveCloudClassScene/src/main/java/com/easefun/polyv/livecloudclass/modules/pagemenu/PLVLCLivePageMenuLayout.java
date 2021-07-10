@@ -2,24 +2,25 @@ package com.easefun.polyv.livecloudclass.modules.pagemenu;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.viewpager.widget.ViewPager;
 
 import com.easefun.polyv.livecloudclass.R;
 import com.easefun.polyv.livecloudclass.modules.chatroom.PLVLCChatFragment;
@@ -143,8 +144,8 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
                 }
                 PLVSimplePagerTitleView simplePagerTitleView = new PLVColorTransitionPagerTitleView(context);
                 simplePagerTitleView.setPadding(ConvertUtils.dp2px(16), 0, ConvertUtils.dp2px(16), 0);
-                simplePagerTitleView.setNormalColor(Color.parseColor("#ADADC0"));
-                simplePagerTitleView.setSelectedColor(Color.parseColor("#FFFFFF"));
+                simplePagerTitleView.setNormalColor(Color.parseColor("#6D7278"));
+                simplePagerTitleView.setSelectedColor(Color.parseColor("#292929"));
                 simplePagerTitleView.setText(pageMenuTabTitleList.get(index));
                 simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -159,10 +160,10 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
             public IPLVPagerIndicator getIndicator(Context context) {
                 PLVLinePagerIndicator linePagerIndicator = new PLVLinePagerIndicator(context);
                 linePagerIndicator.setMode(PLVLinePagerIndicator.MODE_WRAP_CONTENT);
-                linePagerIndicator.setLineHeight(ConvertUtils.dp2px(2));
+                linePagerIndicator.setLineHeight(ConvertUtils.dp2px(6));
                 linePagerIndicator.setXOffset(0);
-                linePagerIndicator.setRoundRadius(ConvertUtils.dp2px(1f));
-                linePagerIndicator.setColors(Color.parseColor("#FFFFFF"));
+                linePagerIndicator.setRoundRadius(ConvertUtils.dp2px(12f));
+                linePagerIndicator.setColors(Color.parseColor("#02923F"));
                 return linePagerIndicator;
             }
         });
