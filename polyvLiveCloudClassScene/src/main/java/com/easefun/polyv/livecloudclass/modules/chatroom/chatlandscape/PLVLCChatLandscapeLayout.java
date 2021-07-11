@@ -4,15 +4,16 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.easefun.polyv.livecloudclass.R;
 import com.easefun.polyv.livecloudclass.modules.chatroom.adapter.PLVLCChatCommonMessageList;
@@ -103,7 +104,7 @@ public class PLVLCChatLandscapeLayout extends FrameLayout {
         if (ScreenUtils.isPortrait()) {
             setVisibility(View.GONE);
         } else {
-            setVisibility(View.VISIBLE);
+//            setVisibility(View.VISIBLE);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.plvlc_chatroom_chat_landscape_layout, this, true);
 
@@ -306,7 +307,7 @@ public class PLVLCChatLandscapeLayout extends FrameLayout {
     // <editor-fold defaultstate="collapsed" desc="横屏聊天室布局 - 开关控制">
     public void toggle(boolean toShow) {
         this.toShow = toShow;
-        setVisibility((toShow && ScreenUtils.isLandscape()) ? View.VISIBLE : View.GONE);
+//        setVisibility((toShow && ScreenUtils.isLandscape()) ? View.VISIBLE : View.GONE);
     }
     // </editor-fold>
 
@@ -316,7 +317,7 @@ public class PLVLCChatLandscapeLayout extends FrameLayout {
         super.onConfigurationChanged(newConfig);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             if (toShow) {
-                setVisibility(View.VISIBLE);
+//                setVisibility(View.VISIBLE);
             }
             if (chatCommonMessageList != null) {
                 boolean result = chatCommonMessageList.attachToParent(swipeLoadView, true);
