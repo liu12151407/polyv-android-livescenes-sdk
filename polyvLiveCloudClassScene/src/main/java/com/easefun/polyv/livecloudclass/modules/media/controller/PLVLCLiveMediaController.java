@@ -28,6 +28,7 @@ import com.easefun.polyv.livecloudclass.R;
 import com.easefun.polyv.livecloudclass.modules.chatroom.widget.PLVLCLikeIconView;
 import com.easefun.polyv.livecloudclass.modules.liveroom.IPLVLiveLandscapePlayerController;
 import com.easefun.polyv.livecloudclass.modules.media.widget.PLVLCLiveMoreLayout;
+import com.easefun.polyv.livecloudclass.scenes.PLVLCCloudClassActivity;
 import com.easefun.polyv.livecommon.module.modules.player.live.contract.IPLVLivePlayerContract;
 import com.easefun.polyv.livecommon.module.modules.player.live.presenter.data.PLVPlayInfoVO;
 import com.easefun.polyv.livecommon.module.utils.rotaion.PLVOrientationManager;
@@ -293,18 +294,24 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
             videoControllerLandLy.setVisibility(View.VISIBLE);
         }
         /**
-         * ===============================================
+         * ======================华丽的分界线=========================
          */
         landscapeController.getCollectionView().setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                try {
+                    PLVLCCloudClassActivity.execution("collection");
+                } catch (Exception e) {
+                }
             }
         });
         landscapeController.getShareView().setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                try {
+                    PLVLCCloudClassActivity.execution("share");
+                } catch (Exception e) {
+                }
             }
         });
     }

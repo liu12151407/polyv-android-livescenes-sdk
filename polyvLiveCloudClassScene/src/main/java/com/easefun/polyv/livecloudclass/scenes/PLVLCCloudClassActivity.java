@@ -823,21 +823,42 @@ public class PLVLCCloudClassActivity extends PLVBaseActivity {
                 @Override
                 public void onPositiveClick() {
                     dialog.dismiss();
-                    if (wsxMonitor != null) {
-                        wsxMonitor.openVip();
-                    }
+                    execution("openVip");
                 }
 
                 @Override
                 public void onNegtiveClick() {
                     dialog.dismiss();
-                    if (wsxMonitor != null) {
-                        wsxMonitor.payMoney();
-                    }
+                    execution("payMoney");
                 }
             }).show();
         } catch (Exception e) {
             ToastUtils.showShort(e.getMessage());
+        }
+    }
+
+    /**
+     * 执行任务
+     */
+    public static void execution(String type) {
+        if (wsxMonitor == null) {
+            return;
+        }
+        switch (type) {
+            case "openVip":
+                wsxMonitor.openVip();
+                break;
+            case "payMoney":
+                wsxMonitor.payMoney();
+                break;
+            case "collection":
+                wsxMonitor.collection();
+                break;
+            case "share":
+                wsxMonitor.share();
+                break;
+            default:
+                break;
         }
     }
 }
