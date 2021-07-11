@@ -102,6 +102,10 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
     private PLVLCLikeIconView likesLandIv;
     //更多按钮
     private ImageView moreLandIv;
+    //收藏
+    private ImageView ivCollection;
+    //分享
+    private ImageView ivShare;
 
     //播放器presenter
     private IPLVLivePlayerContract.ILivePlayerPresenter livePlayerPresenter;
@@ -286,34 +290,19 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
         likesLandIv.setOnButtonClickListener(this);
         moreLandIv = landscapeController.getMoreView();
         moreLandIv.setOnClickListener(this);
-
+        /**
+         * ======================华丽的分界线=========================
+         */
+        ivCollection = landscapeController.getCollectionView();
+        ivCollection.setOnClickListener(this);
+        ivShare = landscapeController.getShareView();
+        ivShare.setOnClickListener(this);
         //choose right orientation
         if (ScreenUtils.isPortrait()) {
             videoControllerLandLy.setVisibility(View.GONE);
         } else {
             videoControllerLandLy.setVisibility(View.VISIBLE);
         }
-        /**
-         * ======================华丽的分界线=========================
-         */
-        landscapeController.getCollectionView().setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    PLVLCCloudClassActivity.execution("collection");
-                } catch (Exception e) {
-                }
-            }
-        });
-        landscapeController.getShareView().setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    PLVLCCloudClassActivity.execution("share");
-                } catch (Exception e) {
-                }
-            }
-        });
     }
 
     @Override
@@ -677,6 +666,16 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
             }, 200);
             if (onViewActionListener != null) {
                 onViewActionListener.onSendLikesAction();
+            }
+        } else if (id == R.id.iv_collection) {
+            try {
+                PLVLCCloudClassActivity.execution("collection");
+            } catch (Exception e) {
+            }
+        } else if (id == R.id.iv_share) {
+            try {
+                PLVLCCloudClassActivity.execution("share");
+            } catch (Exception e) {
             }
         }
     }

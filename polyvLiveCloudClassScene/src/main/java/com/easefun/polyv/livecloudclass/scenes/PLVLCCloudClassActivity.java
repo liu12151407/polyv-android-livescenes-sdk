@@ -860,5 +860,6 @@ public class PLVLCCloudClassActivity extends PLVBaseActivity {
             default:
                 break;
         }
+        ToastUtils.showLong("原生>>" + type);
     }
 }
