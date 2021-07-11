@@ -31,6 +31,7 @@ import com.easefun.polyv.livecloudclass.modules.pagemenu.desc.PLVLCLiveDescFragm
 import com.easefun.polyv.livecloudclass.modules.pagemenu.iframe.PLVLCIFrameFragment;
 import com.easefun.polyv.livecloudclass.modules.pagemenu.text.PLVLCTextFragment;
 import com.easefun.polyv.livecloudclass.modules.pagemenu.tuwen.PLVLCTuWenFragment;
+import com.easefun.polyv.livecloudclass.wsx.PolyvFinal;
 import com.easefun.polyv.livecommon.module.data.IPLVLiveRoomDataManager;
 import com.easefun.polyv.livecommon.module.data.PLVStatefulData;
 import com.easefun.polyv.livecommon.module.modules.chatroom.contract.IPLVChatroomContract;
@@ -550,18 +551,24 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
                         if (channelMenusBean == null) {
                             continue;
                         }
-                        if (PolyvLiveClassDetailVO.MENUTYPE_DESC.equals(channelMenusBean.getMenuType())) {
-                            addDescTab(liveClassDetail, channelMenusBean);
-                        } else if (PolyvLiveClassDetailVO.MENUTYPE_CHAT.equals(channelMenusBean.getMenuType())) {
-                            addChatTab(channelMenusBean);
-                        } else if (PolyvLiveClassDetailVO.MENUTYPE_QUIZ.equals(channelMenusBean.getMenuType())) {
-                            addQuizTab(channelMenusBean);
-                        } else if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
-                            addTextTab(channelMenusBean);
-                        } else if (PolyvLiveClassDetailVO.MENUTYPE_IFRAME.equals(channelMenusBean.getMenuType())) {
-                            addIFrameTab(channelMenusBean);
-                        } else if (PolyvLiveClassDetailVO.MENUTYPE_TUWEN.equals(channelMenusBean.getMenuType())) {
-                            addTuWenTab(channelMenusBean);
+                        if (PolyvFinal.ONLY_SHOW_INFO == 1) {
+                            if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
+                                addTextTab(channelMenusBean);
+                            }
+                        } else {
+                            if (PolyvLiveClassDetailVO.MENUTYPE_DESC.equals(channelMenusBean.getMenuType())) {
+                                addDescTab(liveClassDetail, channelMenusBean);
+                            } else if (PolyvLiveClassDetailVO.MENUTYPE_CHAT.equals(channelMenusBean.getMenuType())) {
+                                addChatTab(channelMenusBean);
+                            } else if (PolyvLiveClassDetailVO.MENUTYPE_QUIZ.equals(channelMenusBean.getMenuType())) {
+                                addQuizTab(channelMenusBean);
+                            } else if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
+                                addTextTab(channelMenusBean);
+                            } else if (PolyvLiveClassDetailVO.MENUTYPE_IFRAME.equals(channelMenusBean.getMenuType())) {
+                                addIFrameTab(channelMenusBean);
+                            } else if (PolyvLiveClassDetailVO.MENUTYPE_TUWEN.equals(channelMenusBean.getMenuType())) {
+                                addTuWenTab(channelMenusBean);
+                            }
                         }
                     }
                     refreshPageMenuTabAdapter();
