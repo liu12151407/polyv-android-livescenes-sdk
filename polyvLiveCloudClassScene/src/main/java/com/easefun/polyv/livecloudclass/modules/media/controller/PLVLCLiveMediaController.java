@@ -152,7 +152,6 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
     // <editor-fold defaultstate="collapsed" desc="初始化view">
     private void initView() {
         LayoutInflater.from(getContext()).inflate(R.layout.plvlc_live_controller_layout, this);
-
         //竖屏控制栏布局
         videoControllerPortLy = findViewById(R.id.video_controller_port_ly);
         backPortIv = findViewById(R.id.back_port_iv);
@@ -171,10 +170,16 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
         morePortIv.setOnClickListener(this);
         gradientBarTopPortView = findViewById(R.id.gradient_bar_top_port_view);
         tvReopenFloatingViewTip = findViewById(R.id.plvlc_live_player_controller_tv_reopen_floating_view);
-
+        /**
+         * ======================华丽的分界线=========================
+         */
+        ivCollection = findViewById(R.id.iv_collection);
+        ivCollection.setOnClickListener(this);
+        ivShare = findViewById(R.id.iv_share);
+        ivShare.setOnClickListener(this);
+        updateTopRightButton();
         //more layout
         initMoreLayout();
-
         //choose right orientation
         if (ScreenUtils.isPortrait()) {
             videoControllerPortLy.setVisibility(View.VISIBLE);
@@ -298,6 +303,7 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
         ivCollection.setOnClickListener(this);
         ivShare = landscapeController.getShareView();
         ivShare.setOnClickListener(this);
+        updateTopRightButton();
         //choose right orientation
         if (ScreenUtils.isPortrait()) {
             videoControllerLandLy.setVisibility(View.GONE);
@@ -452,7 +458,6 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
         } else {
             landscapeController.hide();
         }
-        updateTopRightButton();
     }
     // </editor-fold>
 
