@@ -13,7 +13,7 @@ public class PolyvFinal {
     /**
      * 是否收藏
      */
-    public static int isCollection = 0;
+    public static int isCollection = 1;
     /**
      * 是否需要弹出支付提示
      */

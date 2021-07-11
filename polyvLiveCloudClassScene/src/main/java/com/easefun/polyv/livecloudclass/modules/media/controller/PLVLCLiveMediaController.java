@@ -29,6 +29,7 @@ import com.easefun.polyv.livecloudclass.modules.chatroom.widget.PLVLCLikeIconVie
 import com.easefun.polyv.livecloudclass.modules.liveroom.IPLVLiveLandscapePlayerController;
 import com.easefun.polyv.livecloudclass.modules.media.widget.PLVLCLiveMoreLayout;
 import com.easefun.polyv.livecloudclass.scenes.PLVLCCloudClassActivity;
+import com.easefun.polyv.livecloudclass.wsx.PolyvFinal;
 import com.easefun.polyv.livecommon.module.modules.player.live.contract.IPLVLivePlayerContract;
 import com.easefun.polyv.livecommon.module.modules.player.live.presenter.data.PLVPlayInfoVO;
 import com.easefun.polyv.livecommon.module.utils.rotaion.PLVOrientationManager;
@@ -450,6 +451,14 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
             landscapeController.show();
         } else {
             landscapeController.hide();
+        }
+        /**
+         * 更新收藏样式
+         */
+        if (PolyvFinal.isCollection == 1) {
+            ivCollection.setImageResource(R.drawable.iv_sc_full);
+        } else {
+            ivCollection.setImageResource(R.drawable.iv_sc_less);
         }
     }
     // </editor-fold>
