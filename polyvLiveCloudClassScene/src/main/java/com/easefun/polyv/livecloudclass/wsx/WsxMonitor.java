@@ -19,4 +19,13 @@ public interface WsxMonitor {
      */
     void payMoney();
 
+    /**
+     * 分享
+     */
+    void share();
+
+    /**
+     * 收藏
+     */
+    void collection();
 }
