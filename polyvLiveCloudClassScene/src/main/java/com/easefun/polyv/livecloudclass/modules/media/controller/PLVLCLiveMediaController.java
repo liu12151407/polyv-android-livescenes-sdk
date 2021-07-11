@@ -452,14 +452,6 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
         } else {
             landscapeController.hide();
         }
-        /**
-         * 更新收藏样式
-         */
-        if (PolyvFinal.isCollection == 1) {
-            ivCollection.setImageResource(R.drawable.iv_sc_full);
-        } else {
-            ivCollection.setImageResource(R.drawable.iv_sc_less);
-        }
     }
     // </editor-fold>
 
@@ -690,4 +682,17 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
     }
     // </editor-fold>
 
+    /**
+     * 更新右上角按钮
+     */
+    public void updateTopRightButton() {
+        /**
+         * 更新收藏样式
+         */
+        if (PolyvFinal.isCollection == 1) {
+            ivCollection.setImageResource(R.drawable.iv_sc_full);
+        } else {
+            ivCollection.setImageResource(R.drawable.iv_sc_less);
+        }
+    }
 }
