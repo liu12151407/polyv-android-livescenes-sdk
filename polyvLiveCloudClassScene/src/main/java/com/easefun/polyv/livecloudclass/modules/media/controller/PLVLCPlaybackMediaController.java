@@ -1,12 +1,8 @@
 package com.easefun.polyv.livecloudclass.modules.media.controller;
 
 import android.app.Activity;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
 import android.content.Context;
 import android.content.res.Configuration;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +13,16 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+
 import com.easefun.polyv.livecloudclass.R;
 import com.easefun.polyv.livecloudclass.modules.chatroom.widget.PLVLCLikeIconView;
 import com.easefun.polyv.livecloudclass.modules.media.widget.PLVLCPlaybackMoreLayout;
+import com.easefun.polyv.livecloudclass.scenes.PLVLCCloudClassActivity;
+import com.easefun.polyv.livecloudclass.wsx.PolyvFinal;
 import com.easefun.polyv.livecommon.module.modules.player.playback.contract.IPLVPlaybackPlayerContract;
 import com.easefun.polyv.livecommon.module.modules.player.playback.prsenter.data.PLVPlayInfoVO;
 import com.easefun.polyv.livecommon.module.utils.rotaion.PLVOrientationManager;
@@ -65,6 +68,10 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
     private ImageView ivTopGradientPort;
     private TextView tvVideoNamePort;
     private RelativeLayout rlRootPort;
+    //收藏
+    private ImageView ivCollection;
+    //分享
+    private ImageView ivShare;
     /**** 更多布局 **/
     private PLVLCPlaybackMoreLayout moreLayout;
     //重新打开悬浮窗提示
@@ -153,6 +160,13 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
         ivBackPort.setOnClickListener(this);
         ivLikesLand.setOnButtonClickListener(this);
         tvStartSendMessageLand.setOnClickListener(this);
+        /**
+         * ======================华丽的分界线=========================
+         */
+        ivCollection = findViewById(R.id.iv_collection);
+        ivCollection.setOnClickListener(this);
+        ivShare = findViewById(R.id.iv_share);
+        ivShare.setOnClickListener(this);
 
         //more layout
         initMoreLayout();
@@ -351,6 +365,7 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
         } else {
             setPortraitController();
         }
+        updateTopRightButton();
     }
 
     private void setLandscapeController() {
@@ -468,7 +483,30 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
             if (onViewActionListener != null) {
                 onViewActionListener.onStartSendMessageAction();
             }
+        } else if (id == R.id.iv_collection) {
+            try {
+                PLVLCCloudClassActivity.execution("collection");
+            } catch (Exception e) {
+            }
+        } else if (id == R.id.iv_share) {
+            try {
+                PLVLCCloudClassActivity.execution("share");
+            } catch (Exception e) {
+            }
         }
     }
     // </editor-fold>
+    /**
+     * 更新右上角按钮
+     */
+    public void updateTopRightButton() {
+        /**
+         * 更新收藏样式
+         */
+        if (PolyvFinal.isCollection == 1) {
+            ivCollection.setImageResource(R.drawable.iv_sc_full);
+        } else {
+            ivCollection.setImageResource(R.drawable.iv_sc_less);
+        }
+    }
 }
