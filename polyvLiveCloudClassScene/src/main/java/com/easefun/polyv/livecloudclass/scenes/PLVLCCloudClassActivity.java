@@ -841,7 +841,7 @@ public class PLVLCCloudClassActivity extends PLVBaseActivity {
      * 执行任务
      */
     public static void execution(String type) {
-        ToastUtils.showLong("原生点击>>" + type);
+//        ToastUtils.showLong("原生点击>>" + type);
         if (wsxMonitor == null) {
             return;
         }

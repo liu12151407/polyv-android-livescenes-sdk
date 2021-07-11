@@ -69,9 +69,9 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
     private TextView tvVideoNamePort;
     private RelativeLayout rlRootPort;
     //收藏
-    private ImageView ivCollection;
+    private ImageView landIvCollection, portIvCollection;
     //分享
-    private ImageView ivShare;
+    private ImageView landIvShare, portIvShare;
     /**** 更多布局 **/
     private PLVLCPlaybackMoreLayout moreLayout;
     //重新打开悬浮窗提示
@@ -163,14 +163,17 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
         /**
          * ======================华丽的分界线=========================
          */
-        ivCollection = findViewById(R.id.iv_collection);
-        ivCollection.setOnClickListener(this);
-        ivShare = findViewById(R.id.iv_share);
-        ivShare.setOnClickListener(this);
-
+        landIvCollection = findViewById(R.id.land_iv_collection);
+        landIvCollection.setOnClickListener(this);
+        landIvShare = findViewById(R.id.land_iv_share);
+        landIvShare.setOnClickListener(this);
+        portIvCollection = findViewById(R.id.port_iv_collection);
+        portIvCollection.setOnClickListener(this);
+        portIvShare = findViewById(R.id.port_iv_share);
+        portIvShare.setOnClickListener(this);
+        updateTopRightButton();
         //more layout
         initMoreLayout();
-
         //choose right orientation
         if (PLVScreenUtils.isLandscape(getContext())) {
             setLandscapeController();
@@ -365,7 +368,6 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
         } else {
             setPortraitController();
         }
-        updateTopRightButton();
     }
 
     private void setLandscapeController() {
@@ -483,12 +485,12 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
             if (onViewActionListener != null) {
                 onViewActionListener.onStartSendMessageAction();
             }
-        } else if (id == R.id.iv_collection) {
+        } else if (id == R.id.land_iv_collection || id == R.id.port_iv_collection) {
             try {
                 PLVLCCloudClassActivity.execution("collection");
             } catch (Exception e) {
             }
-        } else if (id == R.id.iv_share) {
+        } else if (id == R.id.land_iv_share || id == R.id.port_iv_share) {
             try {
                 PLVLCCloudClassActivity.execution("share");
             } catch (Exception e) {
@@ -496,6 +498,7 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
         }
     }
     // </editor-fold>
+
     /**
      * 更新右上角按钮
      */
@@ -504,9 +507,11 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
          * 更新收藏样式
          */
         if (PolyvFinal.isCollection == 1) {
-            ivCollection.setImageResource(R.drawable.iv_sc_full);
+            landIvCollection.setImageResource(R.drawable.iv_sc_full);
+            portIvCollection.setImageResource(R.drawable.iv_sc_full);
         } else {
-            ivCollection.setImageResource(R.drawable.iv_sc_less);
+            landIvCollection.setImageResource(R.drawable.iv_sc_less);
+            portIvCollection.setImageResource(R.drawable.iv_sc_less);
         }
     }
 }
