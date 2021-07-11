@@ -84,6 +84,17 @@ public interface IPLVLiveLandscapePlayerController {
      */
     ImageView getMoreView();
 
+
+    /**
+     * 获取收藏按钮
+     */
+    ImageView getCollectionView();
+
+    /**
+     * 获取分享按钮
+     */
+    ImageView getShareView();
+
     /**
      * 显示
      */
@@ -94,5 +105,6 @@ public interface IPLVLiveLandscapePlayerController {
      */
     void hide();
     // </editor-fold>
+
 
 }

@@ -1,8 +1,6 @@
 package com.easefun.polyv.livecloudclass.modules.liveroom;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.easefun.polyv.livecloudclass.R;
 import com.easefun.polyv.livecloudclass.modules.chatroom.widget.PLVLCLikeIconView;
@@ -108,6 +109,16 @@ public class PLVLCLiveLandscapeChannelController extends FrameLayout implements 
     @Override
     public ImageView getMoreView() {
         return findViewById(R.id.more_land_iv);
+    }
+
+    @Override
+    public ImageView getCollectionView() {
+        return findViewById(R.id.iv_collection);
+    }
+
+    @Override
+    public ImageView getShareView() {
+        return findViewById(R.id.iv_share);
     }
 
     @Override
