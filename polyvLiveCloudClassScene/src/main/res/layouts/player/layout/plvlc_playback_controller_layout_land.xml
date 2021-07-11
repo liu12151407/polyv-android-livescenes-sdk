@@ -164,16 +164,16 @@
 
             <ImageView
                 android:id="@+id/iv_collection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:padding="8dp"
-                android:src="@drawable/btn_soucang" />
+                android:src="@drawable/iv_sc_less" />
 
             <ImageView
                 android:id="@+id/iv_share"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:padding="10dp"
                 android:src="@drawable/btn_fenxiang" />
         </LinearLayout>
     </LinearLayout>
