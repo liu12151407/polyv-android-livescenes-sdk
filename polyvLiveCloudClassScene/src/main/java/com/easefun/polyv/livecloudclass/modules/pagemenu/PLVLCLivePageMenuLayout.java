@@ -551,7 +551,7 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
                         if (channelMenusBean == null) {
                             continue;
                         }
-                        if (PolyvFinal.ONLY_SHOW_INFO == 1) {
+                        if (PolyvFinal.onlyShowInfo == 1) {
                             if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
                                 addTextTab(channelMenusBean);
                             }

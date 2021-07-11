@@ -1,7 +1,6 @@
 package com.easefun.polyv.livecloudclass.scenes;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -25,6 +24,7 @@ import com.easefun.polyv.livecloudclass.modules.pagemenu.IPLVLCLivePageMenuLayou
 import com.easefun.polyv.livecloudclass.modules.ppt.IPLVLCFloatingPPTLayout;
 import com.easefun.polyv.livecloudclass.modules.ppt.IPLVLCPPTView;
 import com.easefun.polyv.livecloudclass.wsx.CommonDialog;
+import com.easefun.polyv.livecloudclass.wsx.PolyvFinal;
 import com.easefun.polyv.livecloudclass.wsx.WsxMonitor;
 import com.easefun.polyv.livecommon.module.config.PLVLiveChannelConfigFiller;
 import com.easefun.polyv.livecommon.module.data.IPLVLiveRoomDataManager;
@@ -48,8 +48,6 @@ import com.plv.foundationsdk.utils.PLVScreenUtils;
 import com.plv.socket.user.PLVSocketUserConstant;
 import com.plv.thirdpart.blankj.utilcode.util.ScreenUtils;
 import com.plv.thirdpart.blankj.utilcode.util.ToastUtils;
-
-import org.jetbrains.annotations.NotNull;
 
 /**
  * date: 2020/10/12
@@ -809,26 +807,18 @@ public class PLVLCCloudClassActivity extends PLVBaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        ctx = this;
-        if (wsxMonitor != null) {
-            wsxMonitor.StateCallBack();
+        if (wsxMonitor != null && PolyvFinal.needCallPayAlter == 1) {
+            getPayState();
         }
     }
 
     /**
-     * 上下文
-     */
-    private static Context ctx;
-
-    /**
      * 弹出提示
-     *
-     * @param price
      */
-    public static void getPayState(@NotNull String price) {
+    private void getPayState() {
         try {
-            final CommonDialog dialog = new CommonDialog(ctx);
-            dialog.setBtnName2("¥" + price + "购买");
+            final CommonDialog dialog = new CommonDialog(this);
+            dialog.setBtnName2("¥" + PolyvFinal.price + "购买");
             dialog.setOnClickBottomListener(new CommonDialog.OnClickBottomListener() {
                 @Override
                 public void onPositiveClick() {
