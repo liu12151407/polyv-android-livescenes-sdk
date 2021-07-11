@@ -841,6 +841,7 @@ public class PLVLCCloudClassActivity extends PLVBaseActivity {
      * 执行任务
      */
     public static void execution(String type) {
+        ToastUtils.showLong("原生>>" + type);
         if (wsxMonitor == null) {
             return;
         }
@@ -860,6 +861,5 @@ public class PLVLCCloudClassActivity extends PLVBaseActivity {
             default:
                 break;
         }
-        ToastUtils.showLong("原生>>" + type);
     }
 }
