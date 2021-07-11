@@ -452,6 +452,7 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
         } else {
             landscapeController.hide();
         }
+        updateTopRightButton();
     }
     // </editor-fold>
 
