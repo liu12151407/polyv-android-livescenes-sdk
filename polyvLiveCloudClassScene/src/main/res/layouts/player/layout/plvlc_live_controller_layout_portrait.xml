@@ -114,11 +114,35 @@
         android:id="@+id/more_port_iv"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_marginTop="0dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="4dp"
         android:padding="8dp"
-        android:src="@drawable/plvlc_controller_more" />
+        android:src="@drawable/plvlc_controller_more"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_top_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:src="@drawable/btn_soucang" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:src="@drawable/btn_fenxiang" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/plvlc_live_player_controller_tv_reopen_floating_view"
