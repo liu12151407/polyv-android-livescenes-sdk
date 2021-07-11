@@ -5,8 +5,8 @@
     <com.easefun.polyv.livecommon.ui.widget.PLVSwitchViewAnchorLayout
         android:id="@+id/plvlc_playback_switch_anchor_player"
         android:layout_width="match_parent"
-        android:background="@color/black"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/black">
 
         <FrameLayout
             android:id="@+id/plvlc_playback_fl_player_switch_view_parent"
