@@ -171,16 +171,6 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
         portIvCollection.setOnClickListener(this);
         portIvShare = findViewById(R.id.port_iv_share);
         portIvShare.setOnClickListener(this);
-        if (PolyvFinal.showCollection == 1) {
-            portIvCollection.setVisibility(View.VISIBLE);
-        } else {
-            portIvCollection.setVisibility(View.GONE);
-        }
-        if (PolyvFinal.showShare == 1) {
-            portIvShare.setVisibility(View.VISIBLE);
-        } else {
-            portIvShare.setVisibility(View.GONE);
-        }
         updateTopRightButton();
         //more layout
         initMoreLayout();
@@ -513,6 +503,20 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
      * 更新右上角按钮
      */
     public void updateTopRightButton() {
+        if (PolyvFinal.showCollection == 1) {
+            landIvCollection.setVisibility(View.VISIBLE);
+            portIvCollection.setVisibility(View.VISIBLE);
+        } else {
+            landIvCollection.setVisibility(View.GONE);
+            portIvCollection.setVisibility(View.GONE);
+        }
+        if (PolyvFinal.showShare == 1) {
+            landIvShare.setVisibility(View.VISIBLE);
+            portIvShare.setVisibility(View.VISIBLE);
+        } else {
+            landIvShare.setVisibility(View.GONE);
+            portIvShare.setVisibility(View.GONE);
+        }
         /**
          * 更新收藏样式
          */
