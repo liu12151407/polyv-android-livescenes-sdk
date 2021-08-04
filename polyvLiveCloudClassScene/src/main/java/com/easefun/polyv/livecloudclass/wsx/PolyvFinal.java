@@ -29,5 +29,5 @@ public class PolyvFinal {
     /**
      *
      */
-    public static int showShare = 0;
+    public static int showShare = 1;
 }
