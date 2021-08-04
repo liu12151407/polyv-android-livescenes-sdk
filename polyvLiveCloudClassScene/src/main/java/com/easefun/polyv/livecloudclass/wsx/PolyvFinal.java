@@ -22,4 +22,6 @@ public class PolyvFinal {
      * 支付价格
      */
     public static String price = "";
+    public static int showCollection = 0;
+    public static int showShare = 0;
 }

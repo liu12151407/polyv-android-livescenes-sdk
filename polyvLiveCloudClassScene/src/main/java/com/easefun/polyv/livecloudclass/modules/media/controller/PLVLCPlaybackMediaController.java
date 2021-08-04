@@ -171,6 +171,16 @@ public class PLVLCPlaybackMediaController extends FrameLayout implements IPLVLCP
         portIvCollection.setOnClickListener(this);
         portIvShare = findViewById(R.id.port_iv_share);
         portIvShare.setOnClickListener(this);
+        if (PolyvFinal.showCollection == 1) {
+            portIvCollection.setVisibility(View.VISIBLE);
+        } else {
+            portIvCollection.setVisibility(View.GONE);
+        }
+        if (PolyvFinal.showShare == 1) {
+            portIvShare.setVisibility(View.VISIBLE);
+        } else {
+            portIvShare.setVisibility(View.GONE);
+        }
         updateTopRightButton();
         //more layout
         initMoreLayout();

@@ -177,6 +177,16 @@ public class PLVLCLiveMediaController extends FrameLayout implements IPLVLCLiveM
         ivCollection.setOnClickListener(this);
         ivShare = findViewById(R.id.iv_share);
         ivShare.setOnClickListener(this);
+        if (PolyvFinal.showCollection == 1) {
+            ivCollection.setVisibility(View.VISIBLE);
+        } else {
+            ivCollection.setVisibility(View.GONE);
+        }
+        if (PolyvFinal.showShare == 1) {
+            ivShare.setVisibility(View.VISIBLE);
+        } else {
+            ivShare.setVisibility(View.GONE);
+        }
         updateTopRightButton();
         //more layout
         initMoreLayout();
