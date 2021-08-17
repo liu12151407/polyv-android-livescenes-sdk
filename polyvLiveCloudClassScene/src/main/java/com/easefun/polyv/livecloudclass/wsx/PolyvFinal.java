@@ -5,7 +5,7 @@ package com.easefun.polyv.livecloudclass.wsx;
  */
 public class PolyvFinal {
     /**
-     * 仅仅显示直播详情
+     * 仅仅显示直播详情（未播放或者已经结束了）
      * 1：限制显示
      * 0：不限制
      */
