@@ -422,6 +422,9 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
         @Override
         public void handleLoginIng(boolean isReconnect) {
             super.handleLoginIng(isReconnect);
+            if (PolyvFinal.onlyShowInfo == 1) {
+                return;
+            }
             if (isReconnect) {
                 ToastUtils.showShort(R.string.plv_chat_toast_reconnecting);
             } else {
@@ -432,6 +435,9 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
         @Override
         public void handleLoginSuccess(boolean isReconnect) {
             super.handleLoginSuccess(isReconnect);
+            if (PolyvFinal.onlyShowInfo == 1) {
+                return;
+            }
             if (isReconnect) {
                 ToastUtils.showShort(R.string.plv_chat_toast_reconnect_success);
             } else {
@@ -442,12 +448,18 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
         @Override
         public void handleLoginFailed(@NonNull Throwable throwable) {
             super.handleLoginFailed(throwable);
+            if (PolyvFinal.onlyShowInfo == 1) {
+                return;
+            }
             ToastUtils.showShort(getResources().getString(R.string.plv_chat_toast_login_failed) + ":" + throwable.getMessage());
         }
 
         @Override
         public void onKickEvent(@NonNull PLVKickEvent kickEvent, boolean isOwn) {
             super.onKickEvent(kickEvent, isOwn);
+            if (PolyvFinal.onlyShowInfo == 1) {
+                return;
+            }
             if (isOwn) {
                 showExitDialog(R.string.plv_chat_toast_been_kicked);
             }
@@ -456,12 +468,18 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
         @Override
         public void onLoginRefuseEvent(@NonNull PLVLoginRefuseEvent loginRefuseEvent) {
             super.onLoginRefuseEvent(loginRefuseEvent);
+            if (PolyvFinal.onlyShowInfo == 1) {
+                return;
+            }
             showExitDialog(R.string.plv_chat_toast_been_kicked);
         }
 
         @Override
         public void onReloginEvent(@NonNull PLVReloginEvent reloginEvent) {
             super.onReloginEvent(reloginEvent);
+            if (PolyvFinal.onlyShowInfo == 1) {
+                return;
+            }
             showExitDialog(R.string.plv_chat_toast_account_login_elsewhere);
         }
     };
