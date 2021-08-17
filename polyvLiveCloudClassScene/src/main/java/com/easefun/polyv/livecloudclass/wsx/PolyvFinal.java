@@ -23,11 +23,16 @@ public class PolyvFinal {
      */
     public static String price = "";
     /**
-     *
+     * 是否显示收藏
      */
     public static int showCollection = 0;
     /**
-     *
+     * 是否显示分享
      */
     public static int showShare = 1;
+    /**
+     * 介绍信息(html源码信息)，权重比后台设置的高，如果传入有值则强制显示
+     * 如果这里不传值，则已后台设置为准
+     */
+    public static String introduceInfo = "";
 }
