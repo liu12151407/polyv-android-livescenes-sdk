@@ -9,7 +9,7 @@ public class PolyvFinal {
      * 1：限制显示
      * 0：不限制
      */
-    public static int onlyLiveInfo = 1;
+    public static int onlyLiveInfo = 0;
     /**
      * 是否收藏
      */

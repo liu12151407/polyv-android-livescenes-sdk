@@ -574,19 +574,24 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
                                 addTextTab(channelMenusBean);
                             }
                         } else {
-                            if (PolyvLiveClassDetailVO.MENUTYPE_DESC.equals(channelMenusBean.getMenuType())) {
-                                addDescTab(liveClassDetail, channelMenusBean);
+                            if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
+                                addTextTab(channelMenusBean);
                             } else if (PolyvLiveClassDetailVO.MENUTYPE_CHAT.equals(channelMenusBean.getMenuType())) {
                                 addChatTab(channelMenusBean);
-                            } else if (PolyvLiveClassDetailVO.MENUTYPE_QUIZ.equals(channelMenusBean.getMenuType())) {
-                                addQuizTab(channelMenusBean);
-                            } else if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
-                                addTextTab(channelMenusBean);
-                            } else if (PolyvLiveClassDetailVO.MENUTYPE_IFRAME.equals(channelMenusBean.getMenuType())) {
-                                addIFrameTab(channelMenusBean);
-                            } else if (PolyvLiveClassDetailVO.MENUTYPE_TUWEN.equals(channelMenusBean.getMenuType())) {
-                                addTuWenTab(channelMenusBean);
                             }
+//                            if (PolyvLiveClassDetailVO.MENUTYPE_DESC.equals(channelMenusBean.getMenuType())) {
+//                                addDescTab(liveClassDetail, channelMenusBean);
+//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_CHAT.equals(channelMenusBean.getMenuType())) {
+//                                addChatTab(channelMenusBean);
+//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_QUIZ.equals(channelMenusBean.getMenuType())) {
+//                                addQuizTab(channelMenusBean);
+//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
+//                                addTextTab(channelMenusBean);
+//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_IFRAME.equals(channelMenusBean.getMenuType())) {
+//                                addIFrameTab(channelMenusBean);
+//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_TUWEN.equals(channelMenusBean.getMenuType())) {
+//                                addTuWenTab(channelMenusBean);
+//                            }
                         }
                     }
                     refreshPageMenuTabAdapter();
