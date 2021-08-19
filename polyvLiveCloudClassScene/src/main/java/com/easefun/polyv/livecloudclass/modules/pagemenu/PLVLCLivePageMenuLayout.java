@@ -577,11 +577,11 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
                             channelMenusBean.setContent(PolyvFinal.introduceInfo);
                         }
                         if (PolyvFinal.onlyLiveInfo == 1) {
-                            if (PolyvLiveClassDetailVO.MENUTYPE_DESC.equals(channelMenusBean.getMenuType())) {
+                            if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
                                 addTextTab(channelMenusBean);
                             }
                         } else {
-                            if (PolyvLiveClassDetailVO.MENUTYPE_DESC.equals(channelMenusBean.getMenuType())) {
+                            if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
                                 addTextTab(channelMenusBean);
                             } else if (PolyvLiveClassDetailVO.MENUTYPE_CHAT.equals(channelMenusBean.getMenuType())) {
                                 addChatTab(channelMenusBean);
