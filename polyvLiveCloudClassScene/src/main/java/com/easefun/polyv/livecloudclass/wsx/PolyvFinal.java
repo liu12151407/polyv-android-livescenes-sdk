@@ -35,4 +35,16 @@ public class PolyvFinal {
      * 如果这里不传值，则已后台设置为准
      */
     public static String introduceInfo = "";
+//    ///测试介绍
+//    public static String introduceInfo = "<p>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<a href=\"https://cd.t.hrclass.com.cn/ctImShOTKV.php\">https://cd.t.hrclass.com.cn/ctImShOTKV.php</a>"
+//            + "<br></p>";
 }

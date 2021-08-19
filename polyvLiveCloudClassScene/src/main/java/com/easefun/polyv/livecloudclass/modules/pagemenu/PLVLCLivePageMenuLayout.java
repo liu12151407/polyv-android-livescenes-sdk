@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -568,6 +569,12 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
                     for (PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean : channelMenusBeans) {
                         if (channelMenusBean == null) {
                             continue;
+                        }
+                        /**
+                         * 如果已经设置本地介绍，则使用
+                         */
+                        if (!TextUtils.isEmpty(PolyvFinal.introduceInfo)) {
+                            channelMenusBean.setContent(PolyvFinal.introduceInfo);
                         }
                         if (PolyvFinal.onlyLiveInfo == 1) {
                             if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
