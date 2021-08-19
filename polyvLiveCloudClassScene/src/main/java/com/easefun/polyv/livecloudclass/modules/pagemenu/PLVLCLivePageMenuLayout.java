@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -31,7 +30,6 @@ import com.easefun.polyv.livecloudclass.modules.chatroom.adapter.holder.PLVLCMes
 import com.easefun.polyv.livecloudclass.modules.pagemenu.desc.PLVLCLiveDescFragment;
 import com.easefun.polyv.livecloudclass.modules.pagemenu.iframe.PLVLCIFrameFragment;
 import com.easefun.polyv.livecloudclass.modules.pagemenu.text.PLVLCTextFragment;
-import com.easefun.polyv.livecloudclass.modules.pagemenu.tuwen.PLVLCTuWenFragment;
 import com.easefun.polyv.livecloudclass.wsx.PolyvFinal;
 import com.easefun.polyv.livecommon.module.data.IPLVLiveRoomDataManager;
 import com.easefun.polyv.livecommon.module.data.PLVStatefulData;
@@ -93,11 +91,7 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
     private List<String> pageMenuTabTitleList;
 
     //tab
-    private PLVLCLiveDescFragment liveDescFragment; //直播介绍tab页
     private PLVLCTextFragment textFragment;//自定义图文菜单tab页
-    private PLVLCIFrameFragment iFrameFragment;//推广外链tab页
-    private PLVLCTuWenFragment tuWenFragment;//图文直播tab页
-    private PLVLCQuizFragment quizFragment;//咨询提问tab页
     private PLVLCChatFragment chatFragment;//互动聊天tab页
     // </editor-fold>
 
@@ -211,21 +205,6 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
         presenter.registerView(chatFragment.getChatroomView());
     }
 
-    /**
-     * 重建 quizFragment 的 chatroomPresenter
-     *
-     * @param presenter
-     * @see #addQuizTab(PolyvLiveClassDetailVO.DataBean.ChannelMenusBean)
-     */
-    private void restoreQuizTabForPresenter(IPLVChatroomContract.IChatroomPresenter presenter) {
-        if (quizFragment == null) {
-            quizFragment = tryGetRestoreFragment(PLVLCQuizFragment.class);
-        }
-        if (quizFragment == null || presenter == null) {
-            return;
-        }
-        presenter.registerView(quizFragment.getChatroomView());
-    }
 
     /**
      * 尝试从FragmentManager中取出需要恢复状态的Fragment
@@ -264,8 +243,6 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
         this.chatroomPresenter = new PLVChatroomPresenter(liveRoomDataManager);
         this.chatroomPresenter.init();
         restoreChatTabForPresenter(chatroomPresenter);
-        restoreQuizTabForPresenter(chatroomPresenter);
-
         initSocketLoginManager();
         observeClassDetailVO();
     }
@@ -292,16 +269,12 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
 
     @Override
     public void updateLiveStatusWithLive() {
-        if (liveDescFragment != null) {
-            liveDescFragment.updateStatusViewWithLive();
-        }
+
     }
 
     @Override
     public void updateLiveStatusWithNoLive() {
-        if (liveDescFragment != null) {
-            liveDescFragment.updateStatusViewWithNoLive();
-        }
+
     }
 
     @Override
@@ -338,41 +311,13 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="直播页面菜单 - 添加tab页">
-    private void addDescTab(PolyvLiveClassDetailVO liveClassDetail, PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean) {
-        pageMenuTabTitleList.add(channelMenusBean.getName());
-        liveDescFragment = new PLVLCLiveDescFragment();
-        liveDescFragment.init(liveClassDetail);
-        pageMenuTabFragmentList.add(liveDescFragment);
-    }
+
 
     private void addTextTab(PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean) {
         pageMenuTabTitleList.add(channelMenusBean.getName());
         textFragment = new PLVLCTextFragment();
         textFragment.init(channelMenusBean.getContent());
         pageMenuTabFragmentList.add(textFragment);
-    }
-
-    private void addIFrameTab(PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean) {
-        pageMenuTabTitleList.add(channelMenusBean.getName());
-        iFrameFragment = new PLVLCIFrameFragment();
-        iFrameFragment.init(channelMenusBean.getContent());
-        pageMenuTabFragmentList.add(iFrameFragment);
-    }
-
-    private void addTuWenTab(PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean) {
-        pageMenuTabTitleList.add(channelMenusBean.getName());
-        tuWenFragment = new PLVLCTuWenFragment();
-        tuWenFragment.init(liveRoomDataManager.getConfig().getChannelId());
-        pageMenuTabFragmentList.add(tuWenFragment);
-    }
-
-    private void addQuizTab(PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean) {
-        pageMenuTabTitleList.add(channelMenusBean.getName());
-        if (quizFragment == null) {
-            quizFragment = new PLVLCQuizFragment();
-            chatroomPresenter.registerView(quizFragment.getChatroomView());
-        }
-        pageMenuTabFragmentList.add(quizFragment);
     }
 
     private void addChatTab(PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean) {
@@ -521,9 +466,6 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
                 if (l == null) {
                     return;
                 }
-                if (liveDescFragment != null) {
-                    liveDescFragment.setLikesCount(l);
-                }
                 if (chatFragment != null) {
                     chatFragment.setLikesCount(l);
                 }
@@ -566,41 +508,24 @@ public class PLVLCLivePageMenuLayout extends FrameLayout implements IPLVLCLivePa
                 //直播详情中的直播菜单列表
                 List<PolyvLiveClassDetailVO.DataBean.ChannelMenusBean> channelMenusBeans = liveClassDetail.getData().getChannelMenus();
                 if (channelMenusBeans != null) {
-                    for (PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean : channelMenusBeans) {
-                        if (channelMenusBean == null) {
-                            continue;
-                        }
-                        /**
-                         * 如果已经设置本地介绍，则使用
-                         */
-                        if (!TextUtils.isEmpty(PolyvFinal.introduceInfo)) {
-                            channelMenusBean.setContent(PolyvFinal.introduceInfo);
-                        }
-                        if (PolyvFinal.onlyLiveInfo == 1) {
-                            if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
-                                addTextTab(channelMenusBean);
-                            }
-                        } else {
-                            if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
-                                addTextTab(channelMenusBean);
-                            } else if (PolyvLiveClassDetailVO.MENUTYPE_CHAT.equals(channelMenusBean.getMenuType())) {
-                                addChatTab(channelMenusBean);
-                            }
-//                            if (PolyvLiveClassDetailVO.MENUTYPE_DESC.equals(channelMenusBean.getMenuType())) {
-//                                addDescTab(liveClassDetail, channelMenusBean);
-//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_CHAT.equals(channelMenusBean.getMenuType())) {
-//                                addChatTab(channelMenusBean);
-//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_QUIZ.equals(channelMenusBean.getMenuType())) {
-//                                addQuizTab(channelMenusBean);
-//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_TEXT.equals(channelMenusBean.getMenuType())) {
-//                                addTextTab(channelMenusBean);
-//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_IFRAME.equals(channelMenusBean.getMenuType())) {
-//                                addIFrameTab(channelMenusBean);
-//                            } else if (PolyvLiveClassDetailVO.MENUTYPE_TUWEN.equals(channelMenusBean.getMenuType())) {
-//                                addTuWenTab(channelMenusBean);
-//                            }
-                        }
-                    }
+                    PolyvLiveClassDetailVO.DataBean.ChannelMenusBean channelMenusBean = new PolyvLiveClassDetailVO.DataBean.ChannelMenusBean();
+                    /**
+                     * 设置本地介绍
+                     */
+                    channelMenusBean.setName("直播详情");
+                    channelMenusBean.setContent(PolyvFinal.introduceInfo);
+                    channelMenusBean.setMenuType(PolyvLiveClassDetailVO.MENUTYPE_TEXT);
+                    addTextTab(channelMenusBean);
+                    /**
+                     * 互动交流
+                     */
+                    channelMenusBean = new PolyvLiveClassDetailVO.DataBean.ChannelMenusBean();
+                    channelMenusBean.setName("互动交流");
+                    channelMenusBean.setMenuType(PolyvLiveClassDetailVO.MENUTYPE_CHAT);
+                    addChatTab(channelMenusBean);
+                    /**
+                     * 刷新和订阅
+                     */
                     refreshPageMenuTabAdapter();
                     observeChatroomData();
                 }
